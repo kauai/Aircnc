@@ -13,10 +13,13 @@ mongoose.connect('mongodb://localhost:27017/omnistack09',{
 })
 
 app.use(express.json())
-app.use(express.urlencoded())
+// app.use(express.urlencoded())
 app.use(routes)
+app.use(function (err, req, res, next) {
+    res.status(400).json({error:err.stack })
+})
 
 app.listen(PORT,(e) => {
-    if(e) console.log(e)
+    if(e) console.log('aqui',e)
     console.log('Server to run port 3000')
 })

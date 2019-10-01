@@ -8,8 +8,11 @@ module.exports = {
          const ext = path.extname(file.originalname)
          const name = path.basename(file.originalname, ext)
 
+         const nowSpace = `${name}-${Date.now()}${ext}`
+         
+         const result = nowSpace.split(' ').map(item => item.trim()).join('')
          //cb(null,`${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`)
-         cb(null,`${name}-${Date.now()}${ext}`)
+         cb(null,result)
      }
    })
 }

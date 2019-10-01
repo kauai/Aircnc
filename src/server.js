@@ -13,6 +13,7 @@ mongoose.connect('mongodb://localhost:27017/omnistack09',{
 })
 
 app.use(express.json())
+app.use(express.urlencoded())
 app.use(routes)
 
 app.listen(PORT,(e) => {
